@@ -161,11 +161,6 @@ say_hello "Petr"   # → Ahoj, Petr!
 #!/bin/bash
 
 get_chuck_joke() {
-  if ! command -v jq &> /dev/null; then
-    echo "❌ jq není nainstalován!"
-    return 1
-  fi
-
   local joke=$(curl -s https://api.chucknorris.io/jokes/random | jq -r '.value')
   echo "🤣 $joke"
 }
